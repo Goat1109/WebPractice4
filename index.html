@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>청소로봇 제어</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"> <!-- CSS 파일 추가 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Pen+Script&display=swap');
+ 
+        .nanum-pen-script-regular {
+            font-family: "Nanum Pen Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="nanum-pen-script-regular">청소로봇 제어</h1>
+
+    <button id="startButton">Start Cleaning</button>
+    <script>
+        const startButton = document.getElementById('startButton');
+
+        startButton.addEventListener('click', () => {
+            fetch('https://goat1109.github.io/WebPractice4//start_cleaning', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+
